@@ -12,6 +12,28 @@ async function fetchData() {
             throw new Error("No se pudo compleatr la solicitud...");
         }
 
+        
+        showProducts.addEventListener("click", () => {
+        prodRow.style.display="grid";
+        prodRow.style.gridTemplateColumns=" repeat(4, 1fr)";
+        products.forEach(product => {
+            prodRow.insertAdjacentHTML("beforeend",`
+               
+                   <div class="card" style="width: 18rem;">
+                    <img src="${product.image}" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.title}</h5>
+                        <p class="card-text">${product.category}</p>
+                        <p class="card-text card-price">${product.price}</p>
+
+                    </div>
+                </div>
+                `);
+
+            });
+
+            });//ShowProducts
+
 
 
         return products;
@@ -21,6 +43,8 @@ async function fetchData() {
     }
 
 }
+
+fetchData();
 
 /*<div class="col-md-3 mb-4">
                 <div class="card" style="width: 18rem;">
@@ -35,12 +59,11 @@ async function fetchData() {
                     </div>
                 </div>
             </div>
+
+
             */
            
 
-showProducts.addEventListener("click", () => {
-    prodRow.innerHTML
 
-});//ShowProdcuts
 
 //AQUI SE INICILAIZAN LOS RECURSOS
